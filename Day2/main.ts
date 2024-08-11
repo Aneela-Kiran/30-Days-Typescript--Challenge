@@ -35,22 +35,42 @@ console.log(NewArray(array1));
 console.log(NewArray(array2));
 
 
-
-
-
-// for(let i=0;i<array.length ; i++){
-//   if(array[i]!= 1){
-//    var  newArray = [array[0] ,array[array.length-1] ];
-//     console.log(newArray)
-//   }
-//   else
-//   console.log(array)
-//  }
-
-
-
 // Question 4 : Find the Largest Number Instructions: Objective: Write a TypeScript function that takes an array of numbers and returns the largest number in the array.
 
 // Requirements:
 
 // The function should handle arrays with positive and negative numbers. If the array contains only one number, return that number. Ensure the function handles an empty array gracefully (you might decide to return undefined or throw an error based on your needs). Note: This solution avoids using built-in methods like Math.max and demonstrates basic iteration and comparison logic.
+
+function largestNumber(num:number[]):number{
+
+  if(num.length === 0){
+    throw new Error("Array is empty")
+  }
+
+    let k:number=num[0];
+    for(let i=1 ; i<num.length ;i++ ){
+
+      if( num[i] > k ){
+
+        k = num[i];
+
+      }
+    }
+      return k
+}
+//arrays
+const arry1:[]=[];
+const arry:number[]=[4,7,9,-9,34,-4,];
+
+
+console.log(largestNumber(arry));//output 34
+
+try {
+  console.log(largestNumber(arry1));  // output caught an error
+} 
+catch (error)
+ {
+  console.error("Caught an error:");  
+}
+
+
